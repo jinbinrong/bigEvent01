@@ -20,6 +20,7 @@ $(function () {
     // 当上传文件文本框状态改变时触发
     $('#file').on('change',function(e) {
         // 获取文件列表伪数组
+        console.dir(e.target.files);
         var filelist = e.target.files
         // 如果数组长度为0
         if(filelist.length === 0){
@@ -28,6 +29,7 @@ $(function () {
         // 获取伪数组里的第一个文件 
         var file = e.target.files[0]
         // 获取文件的路径
+        console.log(e.target.files);
         var imgURL = URL.createObjectURL(file)
         // 销毁旧的裁减区域，重新设置图片路径，重新初始化裁剪区域
         $image.cropper('destroy').attr('src',imgURL).cropper(options)
